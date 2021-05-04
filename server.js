@@ -21,7 +21,7 @@ var list = "";
 
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, "../client/src/assets");
+		cb(null, "./client/src/assets");
 	},
 	filename: function (req, file, cb) {
 		cb(null, file.originalname);
@@ -124,7 +124,7 @@ app.get("/download", (req, res) => {
 		res.contentType("application/pdf");
 		res.send(data);
 	});
-	fsExtra.emptydirSync("../client/src/assets");
+	fsExtra.emptydirSync("./client/src/assets");
 });
 
 app.listen(PORT, () => {
@@ -133,6 +133,6 @@ app.listen(PORT, () => {
 
 // heroku setting
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+// 	app.use(express.static("client/build"));
+// }
