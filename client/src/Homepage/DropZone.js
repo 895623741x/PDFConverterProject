@@ -188,9 +188,6 @@ function DropZone(props) {
 							</DragDropContext>
 						</div>
 
-						{/* <div>
-							<MergePage files={Array.from(uploadedFile)} />
-						</div> */}
 						{!isMerge ? (
 							<button onClick={mergeHandler} className="btn merge-btn" disabled={isMerging || !isImageLoaded}>
 								{!isMerging ? "Merge" : "Merging..."}
