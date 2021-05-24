@@ -4,7 +4,7 @@ Here is the link to the demo video https://youtu.be/A-wQm3WcUbI
 
 In the project directory, you can run:
 
-## node server.js
+## `node server.js`
 
 Runs the server at http://localhost:8000
 
