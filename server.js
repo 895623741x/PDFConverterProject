@@ -15,7 +15,7 @@ var app = express();
 
 app.use(cors());
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 // come back and check this line if the pdf cant be downloaded
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static("./client/build"));
