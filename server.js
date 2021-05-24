@@ -16,7 +16,13 @@ var app = express();
 app.use(cors());
 
 app.use(express.static("public"));
-// app.use("*", express.static(path.join(__dirname, "client", "build")));
+// come back and check this line if the pdf cant be downloaded
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+	response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 var list = "";
 
