@@ -16,10 +16,13 @@ var app = express();
 app.use(cors());
 
 app.use(express.static("public"));
-
 // come back and check this line if the pdf cant be downloaded
-app.use("/", express.static(path.join(__dirname, "./client/build")));
-
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("./client/build"));
+	app.get("*", (req, res) => {
+		res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+	});
+}
 var list = "";
 
 var storage = multer.diskStorage({
